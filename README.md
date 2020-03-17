@@ -30,7 +30,7 @@ SQL Server 2019 provides many new capabilities including:
 
 In this course you will learn some of the concepts and how to solve modern data challenges using a hands-on lab approach.
 
-This course is intended to be taken as a self-paced lab in 2 to 4 hours but can be instructor-led to broaden the discussion or go deeper into specific subjects. A supplement slide deck is available for this course in the [slides](https://github.com/microsoft/sqlworkshops/tree/master/sql2019lab/slides) folder.
+This course is intended to be taken as a self-paced lab in 2 to 4 hours but can be instructor-led to broaden the discussion or go deeper into specific subjects. A supplement slide deck is available for this course in the [slides](https://github.com/microsoft/sqlworkshops-sql2019lab/tree/master/slides) folder.
 
 This course is designed for data professionals who have a basic working knowledge of SQL Server and the T-SQL language.
 
@@ -99,10 +99,10 @@ In addition, SQL Server Polybase allows you to connect to Azure SQL Database, Az
 
 To complete this workshop you will need the following:
 
-- Clone the workshop using git from https://github.com/microsoft/sqlworkshops.git. All the scripts and files in the labs are found in the **sql2019lab** folder.
+- Clone the workshop using git from https://github.com/microsoft/sqlworkshops-sql2019lab.git. All the scripts and files in the labs are found in the **sql2019lab** folder.
 - On Windows systems, you should use the following git syntax
 
-    `git clone --config core.autocrlf=false https://github.com/microsoft/sqlworkshops.git`
+    `git clone --config core.autocrlf=false https://github.com/microsoft/sqlworkshops-sql2019lab.git`
 
 - Install the software as listed in the **Setup** section below
 
