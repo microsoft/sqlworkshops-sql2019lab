@@ -92,13 +92,13 @@ USE WideWorldImporters
 GO
 IF EXISTS (SELECT * FROM sys.sensitivity_classifications sc WHERE object_id('[Application].[PaymentMethods]') = sc.major_id)
 BEGIN
-	DROP SENSITIVITY CLASSIFICATION FROM [Application].[PaymentMethods].[PaymentMethodName]
+    DROP SENSITIVITY CLASSIFICATION FROM [Application].[PaymentMethods].[PaymentMethodName]
 END
 GO
 IF EXISTS (SELECT * FROM sys.sensitivity_classifications sc WHERE object_id('[Application].[People]') = sc.major_id)
 BEGIN
-	DROP SENSITIVITY CLASSIFICATION FROM [Application].[People].[FullName]
-	DROP SENSITIVITY CLASSIFICATION FROM [Application].[People].[EmailAddress]
+    DROP SENSITIVITY CLASSIFICATION FROM [Application].[People].[FullName]
+    DROP SENSITIVITY CLASSIFICATION FROM [Application].[People].[EmailAddress]
 END
 GO
 ```
@@ -109,7 +109,7 @@ GO
 
 - Launch SSMS and select the Data Discovery and Classification option as a Task from WideWorldImporters in Object Explorer
 
-![Launch Data Classification](./graphics/launch_data_classification.png)
+![Launch Data Classification](../graphics/launch_data_classification.png)
 
 - View recommendations from the tool
 
@@ -117,14 +117,14 @@ SSMS analyzes column names in the database and creates recommendations for data 
 
 Select "click to view" in the gray bar to see the recommendations for WideWorldImporters
 
-![Choose Classification Recommendations](./graphics/choose_classification_recommendations.png)
+![Choose Classification Recommendations](../graphics/choose_classification_recommendations.png)
 
 - Select a few columns based on recommendations
 
 The recommendations provided by the tool are fixed and cannot be customized (you will see later how to add your own). To see how this information is saved, click on the columns **PaymentMethodName** and **FullName**. Then click on 
 **Accept selected recommendations**.
 
-![Accept Classification Recommendations](./graphics/accept_classification_recommendations.png)
+![Accept Classification Recommendations](../graphics/accept_classification_recommendations.png)
 
 - Save the recommendations
 
@@ -132,7 +132,7 @@ The tool shows you the recommendations you accepted. You could delete these and 
 
 Click the save button to save your recommendations. The tool will run the corresponding ADD SENSITIVITY CLASSIFICATION T-SQL statements when you click Save.
 
-![Save Classification Recommendations](./graphics/save_classification_recommendations.png)
+![Save Classification Recommendations](../graphics/save_classification_recommendations.png)
 
 - View a report of classifications
 
@@ -140,7 +140,7 @@ SSMS has a report that shows classifications saved in the database both with the
 
 On the window where you clicked the Save button, click the View Report button. A new tab will be created with a report that looks like the following
 
-![Data Classification Report](./graphics/data_classification_report.png)
+![Data Classification Report](../graphics/data_classification_report.png)
 
 The report shows details of what is marked for classification and a total of how many columns and tables are marked with classifications based on totals in the database.
 
@@ -199,7 +199,7 @@ GO
 ```
 Your results from the catalog view query should look like the following
 
-![Classification Results](./graphics/classification_results.png)
+![Classification Results](../graphics/classification_results.png)
 
 Notice the results have columns for **information_type_id** and **label_id**. These are GUID values that you can use instead of just string values. Your organization's data catalog system may require a unique ID for tracking classification metadata. Remember the **NEWID()** T-SQL function can be used to generate unique GUID values. The SSMS tool generates **information_type_id** and **label_id** values.
 
@@ -254,18 +254,18 @@ USE WideWorldImporters
 GO
 IF EXISTS (SELECT * FROM sys.database_audit_specifications WHERE name = 'People_Audit')
 BEGIN
-	ALTER DATABASE AUDIT SPECIFICATION People_Audit 
-	WITH (STATE = OFF)
-	DROP DATABASE AUDIT SPECIFICATION People_Audit
+    ALTER DATABASE AUDIT SPECIFICATION People_Audit 
+    WITH (STATE = OFF)
+    DROP DATABASE AUDIT SPECIFICATION People_Audit
 END
 GO
 USE master
 GO
 IF EXISTS (SELECT * FROM sys.server_audits WHERE name = 'GDPR_Audit')
 BEGIN
-	ALTER SERVER AUDIT GDPR_Audit
-	WITH (STATE = OFF)
-	DROP SERVER AUDIT GDPR_Audit
+    ALTER SERVER AUDIT GDPR_Audit
+    WITH (STATE = OFF)
+    DROP SERVER AUDIT GDPR_Audit
 END
 GO
 
@@ -335,7 +335,7 @@ The system function **fn_get_audit_file**() can be used to obtain results from S
 
 Your results should look like the following:
 
-![Audit of SELECT of all columns](./graphics/audit_select_all_columns.png)
+![Audit of SELECT of all columns](../graphics/audit_select_all_columns.png)
 
 The first row is a record that the audit has started. The second row is an audit of the SELECT statement. The **data_sensitivity_information** column contains an XML record of the **label** and **information_type** values associated with columns that have data classifications. This includes the information to look up what columns are affected through the **sys.sensitivity_columns** catalog view.
 
@@ -369,7 +369,7 @@ GO
 ```
 Your results should now look like the following:
 
-![Audit of SELECT of one column](./graphics/audit_select_one_column.png)
+![Audit of SELECT of one column](../graphics/audit_select_one_column.png)
 
 The third row is for the new SELECT statement and the data_sensitivity_information contains an XML record of data classification for only one column.
 
@@ -404,7 +404,7 @@ GO
 ```
 Your results should now look like the following:
 
-![Audit of SELECT WHERE clause](./graphics/audit_select_where_clause.png)
+![Audit of SELECT WHERE clause](../graphics/audit_select_where_clause.png)
 
 Notice in this results for the new row the data_sensitivity_information columns is NULL. This is because auditing for data classification only apply where columns are listed in the SELECT "list" of a query.
 
@@ -419,18 +419,18 @@ USE WideWorldImporters
 GO
 IF EXISTS (SELECT * FROM sys.database_audit_specifications WHERE name = 'People_Audit')
 BEGIN
-	ALTER DATABASE AUDIT SPECIFICATION People_Audit 
-	WITH (STATE = OFF)
-	DROP DATABASE AUDIT SPECIFICATION People_Audit
+    ALTER DATABASE AUDIT SPECIFICATION People_Audit 
+    WITH (STATE = OFF)
+    DROP DATABASE AUDIT SPECIFICATION People_Audit
 END
 GO
 USE master
 GO
 IF EXISTS (SELECT * FROM sys.server_audits WHERE name = 'GDPR_Audit')
 BEGIN
-	ALTER SERVER AUDIT GDPR_Audit
-	WITH (STATE = OFF)
-	DROP SERVER AUDIT GDPR_Audit
+    ALTER SERVER AUDIT GDPR_Audit
+    WITH (STATE = OFF)
+    DROP SERVER AUDIT GDPR_Audit
 END
 GO
 
@@ -444,11 +444,11 @@ GO
 USE WideWorldImporters
 GO
 IF EXISTS (SELECT * FROM sys.sensitivity_classifications sc WHERE object_id('[Application].[PaymentMethods]') = sc.major_id)
-	DROP SENSITIVITY CLASSIFICATION FROM [Application].[PaymentMethods].[PaymentMethodName]
+    DROP SENSITIVITY CLASSIFICATION FROM [Application].[PaymentMethods].[PaymentMethodName]
 GO
 IF EXISTS (SELECT * FROM sys.sensitivity_classifications sc WHERE object_id('[Application].[People]') = sc.major_id)
-	DROP SENSITIVITY CLASSIFICATION FROM [Application].[People].[FullName]
-	DROP SENSITIVITY CLASSIFICATION FROM [Application].[People].[EmailAddress]
+    DROP SENSITIVITY CLASSIFICATION FROM [Application].[People].[FullName]
+    DROP SENSITIVITY CLASSIFICATION FROM [Application].[People].[EmailAddress]
 GO
 ```
 
@@ -472,4 +472,4 @@ Proceed to the next module learn about new mission critical **availability** fea
 
 <h2><img style="float: left; margin: 0px 15px 15px 0px;" src="https://github.com/microsoft/sqlworkshops/blob/master/graphics/geopin.png?raw=true"><b>     Next Steps</b></h2>
 
-Next, Continue to <a href="03_Availability.md" target="_blank"><i>Availability</i></a>.
+Next, Continue to <a href="./03_Availability.md" target="_blank"><i>Availability</i></a>.
