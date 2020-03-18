@@ -1,4 +1,4 @@
-![](../graphics/microsoftlogo.png)
+![](.../graphics/microsoftlogo.png)
 
 # Workshop: SQL Server 2019 Lab (RC)
 
@@ -39,7 +39,7 @@ Organizations often today have multiple database providers and sources that they
 
 Consider all the data sources facing a company like WideWorldImporters
 
-![WWI Data Sources](./graphics/wwi_data_sources.png)
+![WWI Data Sources](../graphics/wwi_data_sources.png)
 
 Traditionally, WideWorldImporters would have to write ETL jobs to move data from all these sources into SQL Server. While that solution still may be best for this company, what if SQL Server could act as a "data hub" for all of these sources? What if you could develop T-SQL queries and execute them against SQL Server 2019, and SQL Server would query the external data sources to bring back the results? Imagine if you could join local SQL Server tables with external data sources or perhaps join all of these together!
 
@@ -53,7 +53,7 @@ Polybase uses ODBC drivers to connect to sources such as Oracle, Teradata, Mongo
 
 Consider this simple diagram for how external tables work
 
-![How External Tables Work](./graphics/how_external_table_works.png)
+![How External Tables Work](../graphics/how_external_table_works.png)
 
 An application runs a T-SQL query against an EXTERNAL TABLE. The EXTERNAL TABLE is mapped to an EXTERNAL DATA SOURCE which points to the location of the external data source (in this diagram imagine this is Azure SQL Database). SQL Server will take the query against the EXTERNAL TABLE and produce a new query native to the external data source. Results are brought back to SQL Server and produced back to the application.
 
@@ -141,21 +141,21 @@ If you have never opened a T-SQL notebook with Azure Data Studio, use the follow
 
 Launch the Azure Data Studio application. Look for the icon similar to this one:
 
-<p><img style="margin: 0px 30px 15x 0px;" src="./graphics/azure_data_studio_icon.png" width="50" height="50">
+<p><img style="margin: 0px 30px 15x 0px;" src="../graphics/azure_data_studio_icon.png" width="50" height="50">
 
 The first time you launch Azure Data Studio, you may see the following choices. For the purposes of this workshop, select No to not load the preview feature and use x to close out the 2nd choice to collect usage data.
     
-<p><img style="margin: 0px 30px 15x 0px;" src="./graphics/ADS_initial_prompts.jpg" width="250" height="150">
+<p><img style="margin: 0px 30px 15x 0px;" src="../graphics/ADS_initial_prompts.jpg" width="250" height="150">
 
 You will now be presented with the following screen to enter in your connection details for SQL Server. Use connection details as provided by your instructor to connect to SQL Server or the connection you have setup yourself for your SQL Server instance.
 
 Now click the **Connect** button to connect. An example of a connection looks similar to this graphic (your server, Auth type, and login may be different):
 
-<p><img style="margin: 0px 30px 15x 0px;" src="./graphics/Azure_Data_Studio_Connect.jpg" width="300" height="350">
+<p><img style="margin: 0px 30px 15x 0px;" src="../graphics/Azure_Data_Studio_Connect.jpg" width="300" height="350">
 
 A successful connection looks similar to this (your server may be different):
 
-![Azure Data Studio Successful Connection](./graphics/Azure_Data_Studio_Successful_Connect.jpg)
+![Azure Data Studio Successful Connection](../graphics/Azure_Data_Studio_Successful_Connect.jpg)
 
 If you haven't already used Explorer in Azure Data Studio, it can be used to explore files. Use the power of Azure Data Studio Explorer to open up any file including notebooks. Use the File/Open Folder menu to open up the **sqlworkshops\sql2019lab** folder. Now click the Explorer icon on the left hand side of Azure Data Studio to see all files and directories for the lab. Navigate to the **04_DataVirtualization\sqldatahub\azuredb** folder, open up the **azuredbexternaltable.ipynb** notebook and go through all the steps. 
 
@@ -163,11 +163,11 @@ If you haven't already used Explorer in Azure Data Studio, it can be used to exp
 
 You can now use Azure Data Studio explorer to open up a notebook or script without exiting the tool.
 
-![Azure Data Studio Explorer](./graphics/Azure_Data_Studio_Explorer.jpg)
+![Azure Data Studio Explorer](../graphics/Azure_Data_Studio_Explorer.jpg)
 
 When you start using a notebook and use the "Play" button of a cell, you may get prompted for the connection. Choose the connection you used when you first opened up Azure Data Studio.
 
-![Play cell in Notebook](./graphics/Play_Cell_Notebook.jpg)
+![Play cell in Notebook](../graphics/Play_Cell_Notebook.jpg)
 
 There is additional documentation on how to use SQL notebooks at https://docs.microsoft.com/en-us/sql/azure-data-studio/sql-notebooks.
 
@@ -207,4 +207,4 @@ Proceed to the next module to learn about enhancements to **SQL Server Linux and
 
 <h2><img style="float: left; margin: 0px 15px 15px 0px;" src="https://github.com/microsoft/sqlworkshops/blob/master/graphics/geopin.png?raw=true"><b>     Next Steps</b></h2>
 
-Next, Continue to <a href="05_Linux_and_Containers.md" target="_blank"><i>Linux and Containers</i></a>.
+Next, Continue to <a href="./05_Linux_and_Containers.md" target="_blank"><i>Linux and Containers</i></a>.

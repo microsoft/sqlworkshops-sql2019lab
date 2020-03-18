@@ -114,7 +114,7 @@ Since docker containers run sqlservr from the command line, part of the output i
 
 If you are using Docker for Windows, you may also see the following firewall pop-up from Windows Defender if you are running this lab on Windows. Please click Allow Access. vpnkit is a gateway used by Docker on Windows to communicate with the VM hosting Linux containers.
 
-![firewall docker compose](./graphics/firewall_rule_docker_compose.jpg)
+![firewall docker compose](../graphics/firewall_rule_docker_compose.jpg)
 
 You will also see output of the db-init.sql execution mostly from the db1 directory. If you have not previously pulled the images for SQL Server 2019 for RHEL, that will be done first and you will see that output.
 
@@ -138,11 +138,11 @@ Connect to localhost,2500 (or `<`server`>`,2500) for the SQL Server publisher. T
 
 Now navigate using SSMS to check the status of the replication snapshot. Use the figure below as a guide on how to navigate Object Explorer to check this status
 
-![Replication Snapshot Status](./graphics/repl_snapshot_status.png)
+![Replication Snapshot Status](../graphics/repl_snapshot_status.png)
 
 Now connect to the subscriber (port 2600) to check that the new table, customers in the Sales database, and data are present. Use the following figure as a guide to navigate and check the table and data. The sa password can be found in the **docker-compose.yml** file.
 
-![Check table and data](./graphics/check_table_and_data.png)
+![Check table and data](../graphics/check_table_and_data.png)
 
 **Step 4: Shutdown and remove the containers**
 
@@ -182,4 +182,4 @@ In this activity, you learned how to deploy a SQL Server replication topology wi
 
 <h2><img style="float: left; margin: 0px 15px 15px 0px;" src="https://github.com/microsoft/sqlworkshops/blob/master/graphics/geopin.png?raw=true"><b>     Next Steps</b></h2>
 
-Next, Continue to <a href="06_Additional_Migration.md" target="_blank"><i>Additional Capabilities, Migration, and Next Steps</i></a>.
+Next, Continue to <a href="./06_Additional_Migration.md" target="_blank"><i>Additional Capabilities, Migration, and Next Steps</i></a>.

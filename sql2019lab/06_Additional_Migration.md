@@ -1,4 +1,4 @@
-![](../graphics/microsoftlogo.png)
+![](.../graphics/microsoftlogo.png)
 
 # Workshop: SQL Server 2019 Lab (RC)
 
@@ -34,7 +34,7 @@ In this section of the module you will learn about additional capabilities in SQ
 
 To meet the challenge of extending the T-SQL language for requirements not met with T-SQL today we have built a framework called SQL Server Language Extensions. Using the same architecture as SQL Server Machine Learning Services, we now allow for new languages to be accessed via T-SQL as seen in the following diagram:
 
-![SQL Server Language Extensions](./graphics/SQL_Language_Extensions.jpg)
+![SQL Server Language Extensions](../graphics/SQL_Language_Extensions.jpg)
 
 You can read more about SQL Server Language Extensions at https://docs.microsoft.com/en-us/sql/language-extensions/language-extensions-overview.
 
@@ -78,7 +78,7 @@ alt="Modernize SQL Server" width="240" height="180" border="10" /></a>
 
 As you plan for a migration to SQL Server 2019, consider looking at the process to perform a pre-migration assessment, your options to migrate, and post-migration optimizations. The following diagram outlines tools we provide for these scenarios:
 
-![Modernizing SQL Server](./graphics/Modernizing_SQL_Server.jpg)
+![Modernizing SQL Server](../graphics/Modernizing_SQL_Server.jpg)
 
 The following tools are available to help you in this process:
 
@@ -135,6 +135,6 @@ Use the following resources to learn more on your journey to SQL Server 2019:
 - Learn from videos and demos at https://aka.ms/sqlchannel
 - Download and try SQL Server 2019 at http://aka.ms/ss19
 - Watch the video of Modernizing SQL Server at https://www.youtube.com/watch?v=5RPkuQHcxxs to plan your migration
-- Read the what’s new for SQL 2019 documentation at https://docs.microsoft.com/en-us/sql/sql-server/what-s-new-in-sql-server-ver15
+- Read the what's new for SQL 2019 documentation at https://docs.microsoft.com/en-us/sql/sql-server/what-s-new-in-sql-server-ver15
 - Sign-up for the EAP program at https://aka.ms/eapsignup
 
