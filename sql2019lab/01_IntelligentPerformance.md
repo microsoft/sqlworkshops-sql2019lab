@@ -46,7 +46,7 @@ Intelligent Query processing is a suite of features built into the query process
 You can read more about database compatibility at https://docs.microsoft.com/en-us/sql/t-sql/statements/alter-database-transact-sql-compatibility-level#compatibility-levels-and-sql-server-upgrades.
 The following is a diagram showing the features of Intelligent Query Processing including capabilities from SQL Server 2017 and SQL Server 2019:
 
-![iqp diagram](./graphics/IQP_diagram.png)
+![iqp diagram](../graphics/IQP_diagram.png)
 
 Intelligent Query Processing is a feature that exists for both SQL Server 2019 and Azure SQL Database. You can read the documentation for a description and example of all of these features at https://docs.microsoft.com/en-us/sql/relational-databases/performance/intelligent-query-processing.
 
@@ -94,21 +94,21 @@ If you have never opened a T-SQL notebook with Azure Data Studio, use the follow
 
 Launch the Azure Data Studio application. Look for the icon similar to this one:
 
-<p><img style="margin: 0px 30px 15x 0px;" src="./graphics/azure_data_studio_icon.png" width="50" height="50">
+<p><img style="margin: 0px 30px 15x 0px;" src="../graphics/azure_data_studio_icon.png" width="50" height="50">
 
 The first time you launch Azure Data Studio, you may see the following choices. For the purposes of this workshop, You can select No to loading 2019 preview extensions and click X to not read the usage data statement.
     
-<p><img style="margin: 0px 30px 15x 0px;" src="./graphics/ADS_initial_prompts.jpg" width="250" height="150">
+<p><img style="margin: 0px 30px 15x 0px;" src="../graphics/ADS_initial_prompts.jpg" width="250" height="150">
 
 You will now be presented with the following screen to enter in your connection details for SQL Server. Use connection details as provided by your instructor to connect to SQL Server or the connection you have setup yourself for your SQL Server instance.
 
 Now click the **Connect** button to connect. An example of a connection looks similar to this graphic (your server, Auth type, and login may be different):
 
-<p><img style="margin: 0px 30px 15x 0px;" src="./graphics/Azure_Data_Studio_Connect.jpg" width="300" height="350">
+<p><img style="margin: 0px 30px 15x 0px;" src="..//graphics/Azure_Data_Studio_Connect.jpg" width="300" height="350">
 
 A successful connection looks similar to this (your server may be different):
 
-![Azure Data Studio Successful Connection](./graphics/Azure_Data_Studio_Successful_Connect.jpg)
+![Azure Data Studio Successful Connection](..//graphics/Azure_Data_Studio_Successful_Connect.jpg)
 
 Use the power of Azure Data Studio Explorer to open up any file including notebooks. Use the File/Open Folder menu to open up the **sqlworkshops\sql2019lab** folder. Now click the Explorer icon on the left hand side of Azure Data Studio to see all files and directories for the lab. Navigate to the **01_IntelligentPerformance\iqp** folder, open up the **iqp_tablevariabledeferred.ipynb** notebook and go through all the steps. 
 
@@ -116,11 +116,11 @@ Use the power of Azure Data Studio Explorer to open up any file including notebo
 
 You can now use Azure Data Studio explorer to open up a notebook or script without exiting the tool.
 
-![Azure Data Studio Explorer](./graphics/Azure_Data_Studio_Explorer.jpg)
+![Azure Data Studio Explorer](..//graphics/Azure_Data_Studio_Explorer.jpg)
 
 When you start using a notebook and use the "Play" button of a cell, you may get prompted for the connection. Choose the connection you used when you first opened up Azure Data Studio.
 
-![Play cell in Notebook](./graphics/Play_Cell_Notebook.jpg)
+![Play cell in Notebook](..//graphics/Play_Cell_Notebook.jpg)
 
 There is additional documentation on how to use SQL notebooks at https://docs.microsoft.com/en-us/sql/azure-data-studio/sql-notebooks. When you are done proceed to the **Activity Summary** section for the Activity below.
 
@@ -164,7 +164,7 @@ Open SQL Server Management Studio (SSMS). Using Object Explorer, navigate to the
 
 Your screen should look similar to the following
 
-![Query Store Reports](./graphics/Query_Store_Reports.png)
+![Query Store Reports](..//graphics/Query_Store_Reports.png)
 
 **STEP 2: Find the query from the CustomerProfits procedure**
 
@@ -179,7 +179,7 @@ GROUP By i.CustomerID
 
 When you find this query your screen should look similar to the following with the chart in the right hand corner showing two "dots" representing the variance in performance for two query plans for the same query text.
 
-![Query Plans for Table Variable](./graphics/query_plans_for_table_variable.png)
+![Query Plans for Table Variable](..//graphics/query_plans_for_table_variable.png)
 
 The "higher" the dot in the chart, the longer the average duration is for that query plan. Query store knows how to store changes in query plans for the same query text. In the example you executed, you ran the same stored procedure but with different dbcompat levels. A different query plan was generated when you switched to dbcompat 150 but didn't change the stored procedure. This is because the query processor used the table variable deferred compilation technique when building the new plan.
 
@@ -189,13 +189,13 @@ Click on the higher dot in the chart. Observe the plan in the lower hand window 
 
 Notice the average duration is less than 1 second but the total duration for all executions is ~13 seconds (your times may vary depending on compute resources for SQL Server). This may not seem all that bad but the business requires faster query execution.
 
-![Query Stats for Slower Plan](./graphics/query_stats_for_slower_plan.png)
+![Query Stats for Slower Plan](..//graphics/query_stats_for_slower_plan.png)
 
 In the query plan window move your cursor over the Clustered Index Scan operator for the table variable and observe how SQL Server only estimates 1 row for the scan (even though the scan is 200K+ rows). A Nested Loops join is used with the Clustered Index Scan. That wouldn't be a problem if the table variable truly only had 1 row. But that is not a good plan choice if there are some 200K+ rows in the table variable.
 
-![Query Plan Slower](./graphics/query_plan_slower.png)
+![Query Plan Slower](..//graphics/query_plan_slower.png)
 
-![Table Variable Estimates Slow Plan](./graphics/table_variable_estimate_slow_plan.png)
+![Table Variable Estimates Slow Plan](..//graphics/table_variable_estimate_slow_plan.png)
 
 **STEP 4: Observe plan and stats for the faster plan using table variable deferred compilation**
 
@@ -203,17 +203,17 @@ Repeat the same process for the lower dot which represents the query plan that i
 
 Move your cursor over the lower dot and observe the execution statistics. See how the average and total duration are significantly lower than before.
 
-![Query Stats for Faster Plan](./graphics/query_stats_for_faster_plan.png)
+![Query Stats for Faster Plan](..//graphics/query_stats_for_faster_plan.png)
 
 Click on the dot and observe the new query plan.
 
-![Query Plan Faster](./graphics/query_plan_faster.png)
+![Query Plan Faster](..//graphics/query_plan_faster.png)
 
 You will notice a clustered index scan is still used but this time with a Hash Join. Additionally, the query processor has used a concept called an Adaptive Join, which was introduced in SQL Server 2017. An adaptive join allows the query processor to choose the join method at execution time based on the number of rows from input of the operator. In this case, a Hash Join is the better choice. You can read more about Adaptive Joins at https://docs.microsoft.com/en-us/sql/relational-databases/performance/intelligent-query-processing.
 
 Move your cursor over the Clustered Index Scan for the table variable. Notice the estimated rows is more accurate and the query processor has also chosen batch mode for rowstore processing. This is another Intelligent Query Processing feature in SQL Server 2019 to make queries faster with no application changes.
 
-![Table Variable Estimates Faster Plan](./graphics/table_variable_estimate_faster_plan.png)
+![Table Variable Estimates Faster Plan](..//graphics/table_variable_estimate_faster_plan.png)
 
 In this example, the query processor used three different Intelligent Query Processing features to make this query faster with no application changes:
 
@@ -242,4 +242,4 @@ Proceed to the next module to learn about new **security** capabilities in SQL S
 
 <h2><img style="float: left; margin: 0px 15px 15px 0px;" src="https://github.com/microsoft/sqlworkshops/blob/master/graphics/geopin.png?raw=true"><b>  Next Steps</b></h2>
 
-Next, Continue to <a href="02_Security.md" target="_blank"><i>Security</i></a>.
+Next, Continue to <a href="./02_Security.md" target="_blank"><i>Security</i></a>.

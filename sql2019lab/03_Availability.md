@@ -56,11 +56,11 @@ These diagrams from the documentation show the recovery process with and without
 
 **Recovery without ADR** (this is the default)
 
-![Recovery without ADR](./graphics/recovery_without_adr.png)
+![Recovery without ADR](../graphics/recovery_without_adr.png)
 
 **Recovery with ADR** (a new option with ALTER DATABASE)
 
-![Recovery with ADR](./graphics/recovery_with_adr.png)
+![Recovery with ADR](../graphics/recovery_with_adr.png)
 
 Both the documentation at https://docs.microsoft.com/en-us/azure/sql-database/sql-database-accelerated-database-recovery and the paper at https://www.microsoft.com/en-us/research/publication/constant-time-recovery-in-azure-sql-database have detailed explanations of how ADR works including the PVS and a concept called the SLog (for system transactions).
 
@@ -117,21 +117,21 @@ If you have never opened a T-SQL notebook with Azure Data Studio, use the follow
 
 Launch the Azure Data Studio application. Look for the icon similar to this one:
 
-<p><img style="margin: 0px 30px 15x 0px;" src="./graphics/azure_data_studio_icon.png" width="50" height="50">
+<p><img style="margin: 0px 30px 15x 0px;" src="../graphics/azure_data_studio_icon.png" width="50" height="50">
 
 The first time you launch Azure Data Studio, you may see the following choices. For the purposes of this workshop, select No to not load the preview feature and use x to close out the 2nd choice to collect usage data.
     
-<p><img style="margin: 0px 30px 15x 0px;" src="./graphics/ADS_initial_prompts.jpg" width="250" height="150">
+<p><img style="margin: 0px 30px 15x 0px;" src="../graphics/ADS_initial_prompts.jpg" width="250" height="150">
 
 You will now be presented with the following screen to enter in your connection details for SQL Server. Use connection details as provided by your instructor to connect to SQL Server or the connection you have setup yourself for your SQL Server instance.
 
 Now click the **Connect** button to connect. An example of a connection looks similar to this graphic (your server, Auth type, and login may be different):
 
-<p><img style="margin: 0px 30px 15x 0px;" src="./graphics/Azure_Data_Studio_Connect.jpg" width="300" height="350">
+<p><img style="margin: 0px 30px 15x 0px;" src="../graphics/Azure_Data_Studio_Connect.jpg" width="300" height="350">
 
 A successful connection looks similar to this (your server may be different):
 
-![Azure Data Studio Successful Connection](./graphics/Azure_Data_Studio_Successful_Connect.jpg)
+![Azure Data Studio Successful Connection](../graphics/Azure_Data_Studio_Successful_Connect.jpg)
 
 If you haven't already used Explorer in Azure Data Studio, it can be used to explore files. Use the power of Azure Data Studio Explorer to open up any file including notebooks. Use the File/Open Folder menu to open up the **sqlworkshops\sql2019lab** folder. Now click the Explorer icon on the left hand side of Azure Data Studio to see all files and directories for the lab. Navigate to the **03_Availability\adr** folder, open up the **adr.ipynb** notebook and go through all the steps. 
 
@@ -139,11 +139,11 @@ If you haven't already used Explorer in Azure Data Studio, it can be used to exp
 
 You can now use Azure Data Studio explorer to open up a notebook or script without exiting the tool.
 
-![Azure Data Studio Explorer](./graphics/Azure_Data_Studio_Explorer.jpg)
+![Azure Data Studio Explorer](../graphics/Azure_Data_Studio_Explorer.jpg)
 
 When you start using a notebook and use the "Play" button of a cell, you may get prompted for the connection. Choose the connection you used when you first opened up Azure Data Studio.
 
-![Play cell in Notebook](./graphics/Play_Cell_Notebook.jpg)
+![Play cell in Notebook](../graphics/Play_Cell_Notebook.jpg)
 
 There is additional documentation on how to use SQL notebooks at https://docs.microsoft.com/en-us/sql/azure-data-studio/sql-notebooks. 
 
@@ -177,4 +177,4 @@ Armed with this knowledge, proceed to the next activity to learn how **data virt
 
 <h2><img style="float: left; margin: 0px 15px 15px 0px;" src="https://github.com/microsoft/sqlworkshops/blob/master/graphics/geopin.png?raw=true"><b>     Next Steps</b></h2>
 
-Next, Continue to <a href="04_DataVirtualization.md" target="_blank"><i>Data Virtualization</i></a>.
+Next, Continue to <a href="./04_DataVirtualization.md" target="_blank"><i>Data Virtualization</i></a>.
