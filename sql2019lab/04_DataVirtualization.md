@@ -1,6 +1,6 @@
 ![](.../graphics/microsoftlogo.png)
 
-# Workshop: SQL Server 2019 Lab (RC)
+# Workshop: SQL Server 2019 Lab
 
 #### <i>A Microsoft workshop from the SQL Server team</i>
 

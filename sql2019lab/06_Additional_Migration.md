@@ -1,6 +1,6 @@
 ![](.../graphics/microsoftlogo.png)
 
-# Workshop: SQL Server 2019 Lab (RC)
+# Workshop: SQL Server 2019 Lab
 
 #### <i>A Microsoft workshop from the SQL Server team</i>
 
@@ -136,5 +136,4 @@ Use the following resources to learn more on your journey to SQL Server 2019:
 - Download and try SQL Server 2019 at http://aka.ms/ss19
 - Watch the video of Modernizing SQL Server at https://www.youtube.com/watch?v=5RPkuQHcxxs to plan your migration
 - Read the what's new for SQL 2019 documentation at https://docs.microsoft.com/en-us/sql/sql-server/what-s-new-in-sql-server-ver15
-- Sign-up for the EAP program at https://aka.ms/eapsignup
 
